@@ -1,0 +1,11 @@
+[package]
+name = "worm_lex"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+codespan-reporting = "0.13.1"
+id-arena = "2.3.0"
+miette = { git = "https://github.com/worm-rs/miette" }
+thiserror = "2.0.18"
+worm_macros = { path = "../worm_macros" }

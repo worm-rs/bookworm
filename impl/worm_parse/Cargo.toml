@@ -1,0 +1,11 @@
+[package]
+name = "worm_parse"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+worm_macros = { path = "../worm_macros" }
+worm_lex = { path = "../worm_lex" }
+miette = { git = "https://github.com/worm-rs/miette" }
+thiserror = "2.0.18"
+worm_ast = { path = "../worm_ast" }

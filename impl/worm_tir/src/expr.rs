@@ -1,0 +1,46 @@
+/// Imports
+use crate::{atom::Param, stmt::Block, ty::Ty};
+use worm_ast::expr::{BinOp, Lit, UnOp};
+use worm_lex::token::Span;
+
+/// Expression kind
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum ExprKind {
+    /// Literal (lit)
+    Lit(Lit),
+
+    /// Unary opreation (unary, expr)
+    Unary(UnOp, Box<Expr>),
+
+    /// Binary operation (bin, lhs, rhs)
+    Bin(BinOp, Box<Expr>, Box<Expr>),
+
+    /// If operation (condition, then, else)
+    If(Box<Expr>, Box<Expr>, Option<Box<Expr>>),
+
+    /// Call expr (e.g `foo(arg, arg, ..n)` )
+    Call(Box<Expr>, Vec<Expr>),
+
+    /// Id expr (e.g, `foo`)
+    Id(String),
+
+    /// Field expr (e.g, `wibble.wobble`)
+    Field(Box<Expr>, String),
+
+    /// Closure expr (e.g `|param, param, ..n| ...`)
+    Closure(Vec<Param>, Box<Expr>),
+
+    /// Assignment expr (e.g `a = b`)
+    Assign(Box<Expr>, Box<Expr>),
+
+    /// Block
+    Block(Box<Block>),
+}
+
+/// Expression
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub struct Expr {
+    pub kind: ExprKind,
+    pub span: Span,
+    pub ty: Ty,
+}

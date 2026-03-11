@@ -1,0 +1,11 @@
+[package]
+name = "worm_tir"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+id-arena = "2.3.0"
+worm_lex = { path = "../worm_lex" }
+worm_macros = { path = "../worm_macros" }
+miette = { git = "https://github.com/worm-rs/miette" }
+worm_ast = { path = "../worm_ast" }

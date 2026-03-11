@@ -1,0 +1,12 @@
+[workspace]
+resolver = "3"
+members = [
+    "impl/worm_ast",
+    "impl/worm_cli",
+    "impl/worm_codegen",
+    "impl/worm_macros",
+    "impl/worm_orchestrator",
+    "impl/worm_parse",
+    "impl/worm_tycheck",
+    "impl/worm_tir"
+]
